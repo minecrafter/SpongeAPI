@@ -31,6 +31,7 @@ import org.spongepowered.api.entity.ArmorEquipable;
 import org.spongepowered.api.entity.Tamer;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.projectile.source.ProjectileSource;
+import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.item.inventory.Carrier;
 import org.spongepowered.api.item.inventory.Inventory;
 
@@ -62,14 +63,17 @@ public interface Humanoid extends Living, ProjectileSource, ArmorEquipable, Tame
      * Opens the given Inventory for the player to view.
      *
      * @param inventory The inventory to view
+     * @param cause The {@link Cause} of the action
      */
-    void openInventory(Inventory inventory);
+    void openInventory(Inventory inventory, Cause cause);
 
     /**
      * Closes the currently viewed entity of this human entity, if it is
      * currently viewing one.
+     *
+     * @param cause The {@link Cause} of the action
      */
-    void closeInventory();
+    void closeInventory(Cause cause);
 
     /**
      * Gets a copy of the current {@link FoodData} for this {@link Humanoid}.
