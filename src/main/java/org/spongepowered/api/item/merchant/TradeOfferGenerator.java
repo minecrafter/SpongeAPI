@@ -22,12 +22,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.item.merchant.generation;
+package org.spongepowered.api.item.merchant;
 
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.item.inventory.ItemStackGenerator;
-import org.spongepowered.api.item.merchant.TradeOffer;
 import org.spongepowered.api.util.ResettableBuilder;
 import org.spongepowered.api.util.weighted.VariableAmount;
 

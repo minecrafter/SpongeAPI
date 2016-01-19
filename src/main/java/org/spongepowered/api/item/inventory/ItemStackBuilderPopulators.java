@@ -90,15 +90,15 @@ public final class ItemStackBuilderPopulators {
     }
 
     public static BiConsumer<ItemStack.Builder, Random> items(final Supplier<Collection<ItemType>> supplier) {
+        final ImmutableList<ItemType> collection = ImmutableList.copyOf(supplier.get());
         return (builder, random) -> {
-            final ImmutableList<ItemType> collection = ImmutableList.copyOf(supplier.get());
             builder.itemType(collection.get(random.nextInt(collection.size())));
         };
     }
 
     public static BiConsumer<ItemStack.Builder, Random> quantity(VariableAmount amount) {
         checkNotNull(amount, "VariableAmount cannot be null!");
-        return ((builder, random) -> builder.quantity(amount.getFlooredAmount(random)));
+        return (builder, random) -> builder.quantity(amount.getFlooredAmount(random));
     }
 
     public static BiConsumer<ItemStack.Builder, Random> quantity(Supplier<VariableAmount> supplier) {
@@ -140,6 +140,21 @@ public final class ItemStackBuilderPopulators {
                 builder.from(itemStack);
             }
         };
+    }
+
+    public static <E, V extends BaseValue<E>> BiConsumer<ItemStack.Builder, Random> values(Iterable<V> values) {
+        WeightedTable<V> tableEntries = new WeightedTable<>(1);
+        for (V value : values) {
+            tableEntries.add(checkNotNull(value, "Value cannot be null!"), 1);
+        }
+        return ((builder, random) -> {
+            final V value = tableEntries.get(random).get(0);
+            final ItemStack itemStack = builder.build();
+            final DataTransactionResult result = itemStack.offer(value);
+            if (result.isSuccessful()) {
+                builder.from(itemStack);
+            }
+        });
     }
 
     public static BiConsumer<ItemStack.Builder, Random> data(DataManipulator<?, ?> manipulator) {

@@ -33,7 +33,7 @@ import org.spongepowered.api.entity.ai.task.AbstractAITask;
 import org.spongepowered.api.entity.living.Agent;
 import org.spongepowered.api.item.ItemType;
 import org.spongepowered.api.item.merchant.VillagerRegistry;
-import org.spongepowered.api.item.merchant.generation.TradeOfferGenerator;
+import org.spongepowered.api.item.merchant.TradeOfferGenerator;
 import org.spongepowered.api.item.recipe.RecipeRegistry;
 import org.spongepowered.api.network.status.Favicon;
 import org.spongepowered.api.plugin.PluginContainer;
