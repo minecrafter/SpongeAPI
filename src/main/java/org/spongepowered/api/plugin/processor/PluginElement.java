@@ -127,7 +127,7 @@ final class PluginElement {
                 }
 
                 // TODO: Load order
-                this.metadata.loadAfter(new PluginMetadata.Dependency(id, dependency.version()), dependency.required());
+                this.metadata.loadAfter(new PluginMetadata.Dependency(id, dependency.version()), !dependency.optional());
             }
         }
     }

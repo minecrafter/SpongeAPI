@@ -24,7 +24,6 @@
  */
 package org.spongepowered.api.plugin.processor;
 
-
 import net.minecrell.plugin.meta.McModInfo;
 import net.minecrell.plugin.meta.PluginMetadata;
 

@@ -51,11 +51,11 @@ public @interface Dependency {
     String version() default ""; // TODO: Maven version ranges
 
     /**
-     * If this dependency is required for the plugin to work. By default
-     * this is {@code true}.
+     * If this dependency is optional for the plugin to work. By default
+     * this is {@code false}.
      *
-     * @return True if the dependency is required for the plugin to work
+     * @return True if the dependency is optional for the plugin to work
      */
-    boolean required() default true;
+    boolean optional() default false;
 
 }
